@@ -1,6 +1,14 @@
 # Comment in python is #
+# Column names and column indices to read
+columns = {'date':0, 'time':1, 'tempout':2}
+
+# Data types for each column, only non string
+types = {'tempout': float}
+
 # Initialize data variable
-data = {'date':[],'time':[],'tempout':[]}
+data = {}
+for column in columns:
+    data[column] = []
 
 # Reading a data file
 filename = "data/wxobs20170821.txt"
@@ -15,10 +23,11 @@ with open(filename,'r') as datafile:
 #        datum = line.split()
 #        data.append(datum)
         split_line = line.split()
-        data['date'].append(split_line[0])
-        data['time'].append(split_line[1])
-        data['tempout'].append(float(split_line[2]))
-
+        for column in columns:
+            i = columns[column]
+            t = types.get(column, str)
+            value = t(split_line[i])
+            data[column].append(value)
 
 # In square brackets, it would essentially be [start:stop:step]
 # If nesting, need to have [x][y][z], not[x[y[z]]]

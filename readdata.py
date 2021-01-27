@@ -5,8 +5,10 @@ def read_data(columns, types={}, filename="data/wxobs20170821.txt"):
 
     Parameters:
         columns: A dictionary of column names mapping to column indicies
-        types: A dictionary of column names mapping to the types which convert each column of data
-        filename: A string path pointing to the CU Boulder weather station data file
+        types: A dictionary of column names mapping to the types which convert
+                each column of data
+        filename: A string path pointing to the CU Boulder weather station 
+                  data file
     """
 
     # Initialize data variable
@@ -15,7 +17,6 @@ def read_data(columns, types={}, filename="data/wxobs20170821.txt"):
         data[column] = []
 
     # Read the data file
-
     with open(filename,'r') as datafile:
         # Read first three lines (header)
         for _ in range(3):

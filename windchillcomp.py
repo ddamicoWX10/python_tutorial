@@ -1,7 +1,7 @@
 
-from readdata import read_data
-from printing import print_comparison
-from computation import compute_windchill
+from mysci.readdata import read_data
+from mysci.printing import print_comparison
+from mysci.computation import compute_windchill
 
 # Comment in python is #
 # Column names and column indices to read

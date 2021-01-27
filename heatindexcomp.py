@@ -1,7 +1,7 @@
 
-from readdata import read_data
-from printing import print_comparison
-from computation import compute_heatindex
+from mysci.readdata import read_data
+from mysci.printing import print_comparison
+from mysci.computation import compute_heatindex
 
 # Comment in python is #
 # Column names and column indices to read

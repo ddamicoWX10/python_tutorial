@@ -1,4 +1,6 @@
 
+import math
+
 # Compute the function wind chill
 def compute_windchill(t, v):
     """
@@ -48,3 +50,25 @@ def compute_heatindex(t, hum):
          (g * t**2 * rh) + (h * t * rh**2) + (i * t**2 * rh**2))
 
     return hi
+
+
+def compute_dewpoint(t,h):
+    """
+    Compute dew point temperature given temperature and humidity
+
+    Parameter:
+        t: The temperature (F, float)
+        h: Relative humidity (%, float)
+    """
+
+    tempC = (t - 32) * 5 / 9 # Convert from F to C
+    rh = h / 100
+
+    b = 18.678
+    c = 257.14 # C
+
+    gamma = math.log(rh) + (b * tempC) / (c + tempC)
+    tdp = c * gamma / (b - gamma)
+
+    tdp_F = 9 / 5 * tdp + 32 # Convert back to F
+    return tdp_F

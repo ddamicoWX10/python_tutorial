@@ -14,9 +14,11 @@ types = {'tempout': float, 'humout':float, 'heatindex':float}
 data = read_data(columns, types=types)
 
 # Running function to compute heat index
-heatindex = []
-for temp, humout in zip(data['tempout'], data['humout']):
-    heatindex.append(compute_heatindex(temp, humout))
+heatindex = [compute_heatindex(t,h) for t, h in zip(data['tempout'],data['humout'])]
+
+#heatindex = []
+#for temp, humout in zip(data['tempout'], data['humout']):
+#    heatindex.append(compute_heatindex(temp, humout))
 
 # Output comparison of data
 print_comparison('HEAT INDX', data['date'], data['time'], data['heatindex'], heatindex)
